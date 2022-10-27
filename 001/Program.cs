@@ -1,4 +1,5 @@
-﻿int[] CreateArray(int length, int min, int max)
+﻿// I. Реализовать следующие функции для работы с массивами:
+int[] CreateArray(int length, int min, int max)
 {
     int[] array = new int[length];
     Random random = new Random();
@@ -92,40 +93,57 @@ int PositiveElementsArray(int[] array)
     return count;
 }
 // Подсчёт количества вхождений элемента в массив
-int Count(int[]array, int check)
+int Count(int[] array, int check)
 {
-    int count=0;
-    foreach(int element in array)
-        if(check==element)
-        count++;
-    return count;    
+    int count = 0;
+    foreach (int element in array)
+        if (check == element)
+            count++;
+    return count;
 }
 // Подсчёт количества чётных элементов в массиве
-int EvenElements(int[]array)
+int EvenElements(int[] array)
 {
-    int count=0;
-    foreach(int element in array)
-        if(element%2==0)
-        count++;
-    return count;    
+    int count = 0;
+    foreach (int element in array)
+        if (element % 2 == 0)
+            count++;
+    return count;
 }
 // Подсчёт количества нечётных элементов в массиве
-int OddElements(int[]array)
+int OddElements(int[] array)
 {
-    int count=0;
-    foreach(int element in array)
-        if(element%2==1)
-        count++;
-    return count;    
+    int count = 0;
+    foreach (int element in array)
+        if (element % 2 == 1)
+            count++;
+    return count;
 }
 // Проверка является ли массив отсортированным по возрастанию. 
 // Если массив отсортирован, то возвращать true, иначе - false.
 bool SortedArray(int[] array)
 {
-    for(int i=0; i<array.Length-1; i++)
-        if(array[i]>array[i+1])
-        return false;
-    return true;    
+    for (int i = 0; i < array.Length - 1; i++)
+        if (array[i] > array[i + 1])
+            return false;
+    return true;
+}
+// II. Реализовать следующие функции:
+// Функцию, которая вычисляет число a в степени n
+int DegreeNumber(int number, int degree)
+{
+    int result = 1;
+    for (int i = 1; i <= degree; i++)
+        result *= number;
+    return result;
+}
+// Функцию, которая вычисляет факториал числа n
+int Factorial(int n)
+{
+    if (n != 0)
+        return n * Factorial(n - 1);
+    else
+        return 1;
 }
 Console.WriteLine();
 Console.Write("Введите размер массива: ");
@@ -177,4 +195,18 @@ int count = Count(array, check);
 Console.WriteLine($"Число {check} встречается {count} раз(а)");
 Console.WriteLine();
 
+Console.WriteLine();
+Console.WriteLine("Для нахождения числа (a) в степени (n) ");
+Console.Write("Введите число а: ");
+int number = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Введите число n: ");
+int degree = int.Parse(Console.ReadLine() ?? "0");
+int res = DegreeNumber(number, degree);
+Console.Write($"Число {number} в степени {degree} равно {res}");
+Console.WriteLine();
 
+Console.WriteLine();
+Console.Write("Для вычисления факториала введите число: ");
+int n = int.Parse(Console.ReadLine() ?? "0");
+Console.Write($"Факториал числа {n} равен: {Factorial(n)} ");
+Console.WriteLine();
