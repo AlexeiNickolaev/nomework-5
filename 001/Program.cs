@@ -1,4 +1,11 @@
 ﻿// I. Реализовать следующие функции для работы с массивами:
+// Вывод мвссива на экран
+
+void PrintArray(int[] array)
+{
+    foreach (int element in array)
+        Console.Write($"{element} ");
+}
 int[] CreateArray(int length, int min, int max)
 {
     int[] array = new int[length];
@@ -7,13 +14,8 @@ int[] CreateArray(int length, int min, int max)
         array[i] = new Random().Next(min, max);
     return array;
 }
-// Вывод мвссива на экран
-void PrintArray(int[] array)
-{
-    foreach (int element in array)
-        Console.Write($"{element} ");
-}
 // Поиск минимума
+
 int MinPosition(int[] array)
 {
     int min = array[0];
@@ -24,6 +26,7 @@ int MinPosition(int[] array)
     return min;
 }
 // Поиск максимума
+
 int MaxPosition(int[] array)
 {
     int max = array[0];
@@ -34,6 +37,7 @@ int MaxPosition(int[] array)
     return max;
 }
 // Поиск суммы элементов массива
+
 int SumArray(int[] array)
 {
     int sum = 0;
@@ -42,6 +46,7 @@ int SumArray(int[] array)
     return sum;
 }
 // Поиск произведения элементов массива
+
 int ProductArrayElement(int[] array)
 {
     int product = 1;
@@ -50,6 +55,7 @@ int ProductArrayElement(int[] array)
     return product;
 }
 // Поиск индекса заданного элемента в массиве, если такого элемента в массиве нет то возвращать -1
+
 int IndexSearch(int[] array, int search)
 {
     int position = -1;
@@ -62,6 +68,7 @@ int IndexSearch(int[] array, int search)
     return position;
 }
 // Проверка наличия элемента в массиве. Возвращает true, если элемент в массиве есть, false – нет
+
 bool CheckingElementArray(int[] array, int find)
 {
     for (int i = 0; i < array.Length; i++)
@@ -70,11 +77,13 @@ bool CheckingElementArray(int[] array, int find)
     return false;
 }
 // Среднее арифметическое элеметов массива
+
 float AverageArray(int[] array)
 {
     return SumArray(array) / array.Length;
 }
 // Подсчёт количества отрицательных элементов массива
+
 int NegativeElementsArray(int[] array)
 {
     int count = 0;
@@ -84,6 +93,7 @@ int NegativeElementsArray(int[] array)
     return count;
 }
 // Подсчёт количества положительных элементов в массиве
+
 int PositiveElementsArray(int[] array)
 {
     int count = 0;
@@ -93,6 +103,7 @@ int PositiveElementsArray(int[] array)
     return count;
 }
 // Подсчёт количества вхождений элемента в массив
+
 int Count(int[] array, int check)
 {
     int count = 0;
@@ -102,6 +113,7 @@ int Count(int[] array, int check)
     return count;
 }
 // Подсчёт количества чётных элементов в массиве
+
 int EvenElements(int[] array)
 {
     int count = 0;
@@ -111,6 +123,7 @@ int EvenElements(int[] array)
     return count;
 }
 // Подсчёт количества нечётных элементов в массиве
+
 int OddElements(int[] array)
 {
     int count = 0;
@@ -121,6 +134,7 @@ int OddElements(int[] array)
 }
 // Проверка является ли массив отсортированным по возрастанию. 
 // Если массив отсортирован, то возвращать true, иначе - false.
+
 bool SortedArray(int[] array)
 {
     for (int i = 0; i < array.Length - 1; i++)
@@ -130,6 +144,7 @@ bool SortedArray(int[] array)
 }
 // II. Реализовать следующие функции:
 // Функцию, которая вычисляет число a в степени n
+
 int DegreeNumber(int number, int degree)
 {
     int result = 1;
@@ -138,6 +153,7 @@ int DegreeNumber(int number, int degree)
     return result;
 }
 // Функцию, которая вычисляет факториал числа n
+
 int Factorial(int n)
 {
     if (n != 0)
@@ -145,6 +161,45 @@ int Factorial(int n)
     else
         return 1;
 }
+//Функцию, которая вычисляет сумму цифр произвольного целого числа n.
+
+int SumDigits(int n)
+{
+    int sum = 0;
+    foreach (char number in n.ToString())
+        sum += int.Parse(number.ToString());
+    return sum;
+}
+
+// Функцию, складывающую два целых числа
+
+int Sum2Digits(int number1, int number2)
+{
+    return number1+number2;
+}
+
+// Функцию, определяющую является ли число простым, 
+// то есть возвращающую true, если число простое, иначе - false
+
+bool PrimeNumber(int num)
+{
+    bool result = true;
+    for(int i=2; i< num; i++)
+        if((float) num /i ==num/i)
+            result=false;
+    return result;        
+}
+
+// Функцию, определяющую является ли число чётным, то есть возвращающую true, 
+// если число чётное, иначе - false
+
+bool EvenNumber(int digit)
+{
+    return digit%2==0;
+}
+
+//III. Вызвать и проверить работу всех вышеуказанных фукнций
+
 Console.WriteLine();
 Console.Write("Введите размер массива: ");
 int length = int.Parse(Console.ReadLine() ?? "0");
@@ -210,3 +265,26 @@ Console.Write("Для вычисления факториала введите �
 int n = int.Parse(Console.ReadLine() ?? "0");
 Console.Write($"Факториал числа {n} равен: {Factorial(n)} ");
 Console.WriteLine();
+
+Console.WriteLine();
+Console.WriteLine("Для получения суммы цифр произвольного целого числа введите это число: ");
+int num = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine($"Сумма цифр числа {num} равна: {SumDigits(num)}");
+Console.WriteLine();
+
+Console.WriteLine();
+Console.Write("Для сложения двух целых чисел введите первое число: ");
+int num1 = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Введите второе число: ");
+int num2 = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine($"Если сложить числа {num1} и {num2}, то сумма будет равна: {Sum2Digits(num1, num2)}");
+Console.WriteLine();
+
+Console.Write("Введите число для определения является ли оно простым : ");
+n = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine($"Число {n} является простым: {PrimeNumber(n)}");
+Console.WriteLine();
+
+Console.Write("Введите число для проверки на четность: ");
+num = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine($"Является ли число {num} четным: {EvenNumber(num)}");
