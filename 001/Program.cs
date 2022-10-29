@@ -175,7 +175,7 @@ int SumDigits(int n)
 
 int Sum2Digits(int number1, int number2)
 {
-    return number1+number2;
+    return number1 + number2;
 }
 
 // Функцию, определяющую является ли число простым, 
@@ -184,10 +184,10 @@ int Sum2Digits(int number1, int number2)
 bool PrimeNumber(int num)
 {
     bool result = true;
-    for(int i=2; i< num; i++)
-        if((float) num /i ==num/i)
-            result=false;
-    return result;        
+    for (int i = 2; i < num; i++)
+        if ((float)num / i == num / i)
+            result = false;
+    return result;
 }
 
 // Функцию, определяющую является ли число чётным, то есть возвращающую true, 
@@ -195,7 +195,7 @@ bool PrimeNumber(int num)
 
 bool EvenNumber(int digit)
 {
-    return digit%2==0;
+    return digit % 2 == 0;
 }
 
 //III. Вызвать и проверить работу всех вышеуказанных фукнций
